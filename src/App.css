@@ -566,11 +566,11 @@ nav h3 {
 @media (max-width: 420px) {
   :root {
     --font-size-lg: 1.3em;
-    --nav-avatar-size: 2.6em;
+    --nav-avatar-size: 2.8em;
   }
 
   .nav-img img {
-    border-radius: .5em;
+    border-radius: .7em;
   }
 
   .stack-icon {
