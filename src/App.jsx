@@ -11,6 +11,7 @@ import Experience from './Components/Experience'
 import Links from './Components/Links'
 import Loader from './Components/Loader'
 import Certifications from './Components/Certifications'
+import Contact from './Components/Contact'
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
       <Experience />
       <Projects />
       <Certifications />
+      <Contact />
     </>
   )
 }

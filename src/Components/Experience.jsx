@@ -98,7 +98,7 @@ function Experience() {
                                         <div className="icon-box" data-title="Netlify">
                                             <SiNetlify className="exp-sicons" />
                                         </div>
-                                        <div className="icon-box" data-title="RiVercelFill">
+                                        <div className="icon-box" data-title="Vercel">
                                             <RiVercelFill className="exp-sicons" />
                                         </div>
                                     </div>
