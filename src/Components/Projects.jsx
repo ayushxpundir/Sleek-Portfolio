@@ -9,11 +9,10 @@ import { GrMysql } from "react-icons/gr";
 import { VscVscode } from "react-icons/vsc";
 import { IoLogoFigma } from "react-icons/io5";
 import { BsCss } from "react-icons/bs";
-
-
+import roxo from "../assets/roxo.webp";
+import pera from "../assets/pera.webp";
 
 function Projects() {
-
     return (
         <>
             <section>
@@ -25,7 +24,7 @@ function Projects() {
                         {/* 1st Project */}
                         <ProjectCard
                             head="Roxo"
-                            image="./src/assets/roxo.webp"
+                            image={roxo}
                             url_live="https://roxo-ascii-player.vercel.app/"
                             url_github="https://github.com/ayushxpundir/ROXO"
                             description="A high-performance, browser-based digital scanning application that translates live video feeds into structural ASCII character arrays in real-time."
@@ -37,7 +36,7 @@ function Projects() {
                         {/* 2nd Project */}
                         <ProjectCard
                             head="Pera"
-                            image="./src/assets/pera.webp"
+                            image={pera}
                             url_live="https://pera-bookmark-manager.vercel.app/"
                             url_github="https://github.com/ayushxpundir/Pera"
                             description="A clean, fast, and personal bookmark manager to organize everything you save on the web. No accounts, no clutter, no distractions."
@@ -60,5 +59,4 @@ function Projects() {
         </>
     )
 }
-
 export default Projects
