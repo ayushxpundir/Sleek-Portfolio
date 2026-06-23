@@ -1,0 +1,439 @@
+:root {
+  /* Global Brand Colors (Makes Dark Mode easy later!) */
+  --text-primary: rgb(250, 250, 250);
+  --text-muted: rgb(141, 141, 141);
+  --border-color: rgb(119, 119, 119);
+
+  /* Global Spacing Scale */
+  --spacing-md: 0.6em;
+
+  /* Global Font Sizes */
+  --font-size-sm: 1.15em;
+  --font-size-md: 1em;
+  --font-size-lg: 1.95em;
+
+  /* Component Specific (Only for unique values) */
+  --nav-avatar-size: 3.8em;
+}
+
+
+/* --- Navigation Component --- */
+nav {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  width: fit-content;
+}
+
+.nav-img img {
+  width: var(--nav-avatar-size);
+  border-radius: .7em;
+  /* No need for a variable unless it changes dynamically */
+  border: .1em dashed var(--border-color);
+}
+
+.nav-main-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+/* Typography elements can share global tokens directly */
+nav h1 {
+  font-size: var(--font-size-lg);
+  color: var(--text-primary);
+  font-weight: 600;
+  /* Fixed too-small line heights */
+  line-height: 1;
+}
+
+nav h2 {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+nav h3 {
+  font-size: var(--font-size-md);
+  color: var(--text-muted);
+  font-weight: 500;
+  font-style: italic;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.s-head h1 {
+  font-size: 1em;
+  letter-spacing: .15em;
+  font-weight: 400;
+  font-family: "Oswald", sans-serif;
+  color: rgb(107, 107, 107);
+  margin-bottom: 1em;
+}
+
+.stack-icon {
+  width: 2.35em;
+  height: auto;
+  color: white;
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+
+.stack-i {
+  display: flex;
+  gap: .6em;
+  flex-wrap: wrap;
+}
+
+/* --- 1. THE BOXES (Must have explicit sizes & relative positioning) --- */
+.icon-box {
+  position: relative;
+  /* 🌟 CRITICAL: Anchors the tooltip right above the icon */
+  display: inline-flex;
+  /* Keeps boxes inline and centers the icon inside */
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.icon-box:hover {
+  border-color: #ffffff;
+}
+
+/* Icon Sizing */
+.stack-icon {
+  color: #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* --- 2. THE TOOLTIP TEXT BUBBLE --- */
+.icon-box::before {
+  content: attr(data-title);
+  /* Pulls text from data-title="..." */
+  position: absolute;
+  bottom: 135%;
+  /* Forces it to hover above the box */
+  left: 50%;
+
+  /* 🌟 FIX SHAKE: Stabilization values added below */
+  transform: translateX(-50%) translateY(4px) scale(0.9);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform;
+
+  /* Styling */
+  background-color: #161617;
+  color: #ffffff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: sans-serif;
+  white-space: nowrap;
+
+  /* Layering & Visibility */
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+  /* 🌟 Forces it to render on top of backgrounds/grids */
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* --- 3. THE LITTLE TRIANGLE ARROW --- */
+.icon-box::after {
+  content: "";
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+
+  /* 🌟 FIX SHAKE: Stabilization values added below */
+  transform: translateX(-50%) translateY(4px) scale(0.9);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform;
+
+  /* Triangle layout */
+  border-width: 5px 5px 0 5px;
+  border-style: solid;
+  border-color: #161617 transparent transparent transparent;
+
+  /* Visibility */
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* --- 4. HOVER TRIGGER --- */
+.icon-box:hover::before,
+.icon-box:hover::after,
+.icon-box:focus::before,
+.icon-box:focus::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+
+
+
+
+.ab-info {
+  color: rgb(170, 170, 170);
+  list-style: none;
+  font-weight: 500;
+  font-size: 1.177em;
+}
+
+/* 1. THE PARENT GRID CONTAINER */
+/* This goes on the <div> wrapping ALL your cards */
+.projects-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1em;
+  /* Ensures a max of 2 columns on desktop */
+  /* Centers the whole grid on the page */
+}
+
+/* 2. THE INDIVIDUAL CARD */
+/* This goes on the card itself for padding, background, etc. */
+
+:root {
+  --pro-grid-border-color: rgb(31, 31, 31);
+  --pro-grid-bg-color: #0f0f0f;
+}
+
+.project-card {
+  background: var(--pro-grid-bg-color);
+  border-radius: .5em;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--pro-grid-border-color);
+  overflow: visible;
+  height: fit-content;
+}
+
+/* 3. THE IMAGE WRAPPER */
+.project-image-wrapper {
+  width: 100%;
+}
+
+.project-image-wrapper img {
+  width: 100%;
+  /* Keeps all images the same height */
+  object-fit: cover;
+
+  border-radius: .5em;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  /* Prevents images from stretching weirdly */
+  display: block;
+}
+
+.project-card h3 {
+  color: rgb(228, 228, 228);
+  font-weight: 600;
+  font-size: 1.3em;
+}
+
+.pro-det {
+  margin: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1em;
+}
+
+.pro-det p {
+  font-size: .9em;
+  color: rgb(153, 153, 153);
+}
+
+.pro-links {
+  display: flex;
+  gap: .5em;
+}
+
+.project-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
+.pro-down-ico,
+.tech-istyle {
+  display: block;
+  width: 1.5em;
+  height: auto;
+  color: white;
+}
+
+.See-more {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 1em;
+  align-items: center;
+}
+
+.box-see-more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  padding: .5em .7em;
+  gap: .5em;
+  border-radius: .5em;
+  background-color: var(--pro-grid-bg-color);
+  border: 1px solid var(--pro-grid-border-color);
+}
+
+
+.See-more h1 {
+  font-size: .9em;
+  font-weight: 300;
+  border-radius: .5em;
+  color: rgb(209, 209, 209);
+}
+
+.arrow-right {
+  display: flex;
+  width: .8em;
+  color: rgb(209, 209, 209);
+}
+
+
+
+.top-inside-links {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  gap: .5em;
+}
+
+.top-links-style {
+  display: flex;
+  width: 1.8em;
+  height: auto;
+  color: rgb(189, 189, 189);
+}
+
+/* Each row is a flex container */
+.timeline-row {
+  display: flex;
+  gap: 15px;
+  /* Controls exact space between the line and the text */
+}
+
+/* The left axis column acts as a flex column to center its children */
+.timeline-axis {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* This automatically centers both the dot and the line horizontally */
+  width: fit-content;
+  /* Explicit width ensures everything centers perfectly */
+  flex-shrink: 0;
+  /* Prevents the column from shrinking on mobile */
+
+}
+
+/* The Dot */
+.dot {
+  margin: .6em 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #7c7c7c;
+  z-index: 2;
+}
+
+/* Green Active Dot */
+.dot.active {
+  background-color: #00dd99;
+  outline: 4px solid rgba(0, 221, 153, 0.2);
+}
+
+/* The Line segments */
+.line {
+  width: 1.5px;
+  background-color: #2b2b2b;
+  flex-grow: 1;
+  /* Forces the line to stretch downward to the next row */
+  border-radius: 10px;
+
+}
+
+/* Right Content Column styling */
+.timeline-content {
+  padding-bottom: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: .3em;
+  /* Space out the rows vertically */
+}
+
+.timeline-content h3 {
+  margin: 0;
+  color: rgb(243, 243, 243);
+  font-weight: 500;
+  font-size: 1.2em;
+}
+
+.subtitle {
+  color: #818181;
+}
+
+.exp-title {
+  display: flex;
+  align-items: center;
+
+  gap: 2em;
+}
+
+.exp-span {
+  color: rgb(223, 223, 223);
+  font-weight: 300;
+}
+
+.exp-description {
+  color: rgb(185, 181, 181);
+  margin-left: 15px;
+  font-size: .9em;
+}
+
+.exp-stack {
+  display: flex;
+  margin-top: .5em;
+  gap: .25em;
+}
+
+.exp-sicons {
+  width: 2em;
+  height: auto;
+  display: block;
+  color: rgb(109, 109, 109);
+}
+
+.exp-cont {
+  display: flex;
+  flex-direction: column;
+}
+
+.es1 {
+  filter: blur(6px);
+}
