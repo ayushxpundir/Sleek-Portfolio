@@ -1,39 +1,72 @@
 :root {
-  /* Global Brand Colors (Makes Dark Mode easy later!) */
-  --text-primary: rgb(250, 250, 250);
+  /* ===========================================================
+     🎨 THEME COLORS & VARIABLES (Change these to update easily!)
+     =========================================================== */
+  --bg-primary: #0f0f0f;
+  --bg-tooltip: #161617;
+  --bg-loader: #0d0d0d;
+  
+  --text-primary: rgb(233, 232, 232);
   --text-muted: rgb(141, 141, 141);
+  --text-lowlight: rgb(107, 107, 107);
+  --text-timeline-sub: #818181;
   --border-color: rgb(119, 119, 119);
+  --hr-color: #7a7a7a;
+
+  /* Accent Highlight Colors */
+  --accent-green: #00dd99;
+  --accent-green-alpha: rgba(0, 221, 153, 0.2);
+  --accent-hover-white: #ffffff;
+  --accent-icon-default: #e0e0e0;
+  --accent-icon-muted: rgb(109, 109, 109);
+  --accent-link-style: rgb(189, 189, 189);
 
   /* Global Spacing Scale */
   --spacing-md: 0.6em;
+  --spacing-sm: 0.4em; /* Stabilized missing variable */
 
   /* Global Font Sizes */
   --font-size-sm: 1.15em;
   --font-size-md: 1em;
   --font-size-lg: 1.95em;
 
-  /* Component Specific (Only for unique values) */
+  /* Component Specific Tokens */
   --nav-avatar-size: 3.8em;
+  --pro-grid-border-color: rgb(31, 31, 31);
+  --pro-grid-bg-color: var(--bg-primary);
+  --timeline-line-color: #2b2b2b;
+  --timeline-dot-muted: #7c7c7c;
+
+  --proj-ico: rgb(206, 206, 206);
+  --top-header-text-color: rgb(209, 209, 209);
 }
 
+
+
+/* Base class to apply to elements you want to fade smoothly on load */
+.fade-in-element {
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+}
 
 /* --- Navigation Component --- */
 nav {
   display: flex;
   align-items: center;
   gap: var(--spacing-md);
-  width: fit-content;
-}
-
-header {
-
-  margin-top: 5em;
+  width: 100%; /* Dynamic fallback calculation for container safety */
+  max-width: fit-content;
 }
 
 .nav-img img {
   width: var(--nav-avatar-size);
+  height: var(--nav-avatar-size);
+  object-fit: cover;
   border-radius: .7em;
-  /* No need for a variable unless it changes dynamically */
   border: .1em dashed var(--border-color);
 }
 
@@ -43,13 +76,11 @@ header {
   gap: var(--spacing-sm);
 }
 
-/* Typography elements can share global tokens directly */
 nav h1 {
   font-size: var(--font-size-lg);
   color: var(--text-primary);
   font-weight: 600;
-  /* Fixed too-small line heights */
-  line-height: 1;
+  line-height: 1.1; /* Adjusted fractionally to prevent clipping descenders */
 }
 
 nav h2 {
@@ -65,27 +96,13 @@ nav h3 {
   font-style: italic;
 }
 
-.stack {
-  display: flex;
-  flex-direction: column;
-}
-
 .s-head h1 {
   font-size: 1em;
   letter-spacing: .15em;
   font-weight: 400;
   font-family: "Oswald", sans-serif;
-  color: rgb(107, 107, 107);
+  color: var(--text-lowlight);
   margin-bottom: 1em;
-}
-
-.stack-icon {
-  width: 2.35em;
-  height: auto;
-  color: white;
-  display: block;
-  justify-content: center;
-  align-items: center;
 }
 
 .stack-i {
@@ -94,12 +111,10 @@ nav h3 {
   flex-wrap: wrap;
 }
 
-/* --- 1. THE BOXES (Must have explicit sizes & relative positioning) --- */
+/* --- THE BOXES & TOOLTIPS --- */
 .icon-box {
   position: relative;
-  /* 🌟 CRITICAL: Anchors the tooltip right above the icon */
   display: inline-flex;
-  /* Keeps boxes inline and centers the icon inside */
   justify-content: center;
   align-items: center;
   border-radius: 8px;
@@ -108,79 +123,59 @@ nav h3 {
 }
 
 .icon-box:hover {
-  border-color: #ffffff;
+  border-color: var(--accent-hover-white);
 }
 
-/* Icon Sizing */
 .stack-icon {
-  color: #e0e0e0;
+  width: 2.35em;
+  height: auto;
+  color: var(--accent-icon-default);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-
-/* --- 2. THE TOOLTIP TEXT BUBBLE --- */
 .icon-box::before {
   content: attr(data-title);
-  /* Pulls text from data-title="..." */
   position: absolute;
   bottom: 135%;
-  /* Forces it to hover above the box */
   left: 50%;
-
-  /* 🌟 FIX SHAKE: Stabilization values added below */
   transform: translateX(-50%) translateY(4px) scale(0.9);
   transform-style: preserve-3d;
   backface-visibility: hidden;
   will-change: transform;
-
-  /* Styling */
-  background-color: #161617;
-  color: #ffffff;
+  background-color: var(--bg-tooltip);
+  color: var(--text-primary);
   padding: 6px 10px;
   border-radius: 6px;
   font-size: 12px;
   font-weight: 500;
   font-family: sans-serif;
   white-space: nowrap;
-
-  /* Layering & Visibility */
   opacity: 0;
   pointer-events: none;
   z-index: 9999;
-  /* 🌟 Forces it to render on top of backgrounds/grids */
   transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-
-/* --- 3. THE LITTLE TRIANGLE ARROW --- */
 .icon-box::after {
   content: "";
   position: absolute;
   bottom: 125%;
   left: 50%;
-
-  /* 🌟 FIX SHAKE: Stabilization values added below */
   transform: translateX(-50%) translateY(4px) scale(0.9);
   transform-style: preserve-3d;
   backface-visibility: hidden;
   will-change: transform;
-
-  /* Triangle layout */
   border-width: 5px 5px 0 5px;
   border-style: solid;
-  border-color: #161617 transparent transparent transparent;
-
-  /* Visibility */
+  border-color: var(--bg-tooltip) transparent transparent transparent;
   opacity: 0;
   pointer-events: none;
   z-index: 9999;
   transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-
-/* --- 4. HOVER TRIGGER --- */
 .icon-box:hover::before,
 .icon-box:hover::after,
 .icon-box:focus::before,
@@ -189,9 +184,6 @@ nav h3 {
   transform: translateX(-50%) translateY(0) scale(1);
 }
 
-
-
-
 .ab-info {
   color: rgb(170, 170, 170);
   list-style: none;
@@ -199,22 +191,12 @@ nav h3 {
   font-size: 1.177em;
 }
 
-/* 1. THE PARENT GRID CONTAINER */
-/* This goes on the <div> wrapping ALL your cards */
+/* --- PROJECTS COMPONENT --- */
 .projects-info {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1em;
-  /* Ensures a max of 2 columns on desktop */
-  /* Centers the whole grid on the page */
-}
-
-/* 2. THE INDIVIDUAL CARD */
-/* This goes on the card itself for padding, background, etc. */
-
-:root {
-  --pro-grid-border-color: rgb(31, 31, 31);
-  --pro-grid-bg-color: #0f0f0f;
+  width: 100%;
 }
 
 .project-card {
@@ -227,20 +209,16 @@ nav h3 {
   height: fit-content;
 }
 
-/* 3. THE IMAGE WRAPPER */
 .project-image-wrapper {
   width: 100%;
 }
 
 .project-image-wrapper img {
   width: 100%;
-  /* Keeps all images the same height */
   object-fit: cover;
-
   border-radius: .5em;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  /* Prevents images from stretching weirdly */
   display: block;
 }
 
@@ -274,18 +252,16 @@ nav h3 {
   align-items: center;
 }
 
-
-
 .pro-down-ico,
 .tech-istyle {
   display: block;
   width: 1.5em;
   height: auto;
-  color: white;
+  color: var(--proj-ico);
 }
 
 .See-more {
-  color: white;
+  color: var(--text-primary);
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -310,7 +286,6 @@ nav h3 {
   border-radius: .5em;
 }
 
-
 .See-more h1 {
   font-size: 1em;
   font-weight: 300;
@@ -324,8 +299,6 @@ nav h3 {
   color: rgb(209, 209, 209);
 }
 
-
-
 .top-inside-links {
   display: flex;
   justify-content: flex-start;
@@ -338,62 +311,49 @@ nav h3 {
   display: flex;
   width: 1.8em;
   height: auto;
-  color: rgb(189, 189, 189);
+  color: var(--accent-link-style);
 }
 
-/* Each row is a flex container */
+/* --- TIMELINE COMPONENT --- */
 .timeline-row {
   display: flex;
   gap: 15px;
-  /* Controls exact space between the line and the text */
 }
 
-/* The left axis column acts as a flex column to center its children */
 .timeline-axis {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* This automatically centers both the dot and the line horizontally */
   width: fit-content;
-  /* Explicit width ensures everything centers perfectly */
   flex-shrink: 0;
-  /* Prevents the column from shrinking on mobile */
-
 }
 
-/* The Dot */
 .dot {
   margin: .6em 0;
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background-color: #7c7c7c;
+  background-color: var(--timeline-dot-muted);
   z-index: 2;
 }
 
-/* Green Active Dot */
 .dot.active {
-  background-color: #00dd99;
-  outline: 4px solid rgba(0, 221, 153, 0.2);
+  background-color: var(--accent-green);
+  outline: 4px solid var(--accent-green-alpha);
 }
 
-/* The Line segments */
 .line {
   width: 1.5px;
-  background-color: #2b2b2b;
+  background-color: var(--timeline-line-color);
   flex-grow: 1;
-  /* Forces the line to stretch downward to the next row */
   border-radius: 10px;
-
 }
 
-/* Right Content Column styling */
 .timeline-content {
   padding-bottom: 2em;
   display: flex;
   flex-direction: column;
   gap: .3em;
-  /* Space out the rows vertically */
 }
 
 .timeline-content h3 {
@@ -404,15 +364,10 @@ nav h3 {
 }
 
 .subtitle {
-  color: #818181;
+  color: var(--text-timeline-sub);
   display: flex;
   align-items: center;
   gap: .3em;
-}
-
-.certext {
-  display: block;
-  width: .9em;
 }
 
 .exp-title {
@@ -423,6 +378,7 @@ nav h3 {
 
 .certext {
   display: inline-block;
+  width: .9em;
   height: auto;
 }
 
@@ -447,7 +403,7 @@ nav h3 {
   width: 2em;
   height: auto;
   display: block;
-  color: rgb(109, 109, 109);
+  color: var(--accent-icon-muted);
 }
 
 .exp-cont {
@@ -459,14 +415,14 @@ nav h3 {
   filter: blur(4px);
 }
 
+/* --- LOADER COMPONENT --- */
 .loader-screen {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: #0d0d0d;
-  /* match your dark theme */
+  background: var(--bg-loader);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -478,7 +434,7 @@ nav h3 {
   width: 48px;
   height: 48px;
   border: 4px solid #2a2a2a;
-  border-top: 4px solid #ffffff;
+  border-top: 4px solid var(--text-primary);
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }
@@ -489,13 +445,106 @@ nav h3 {
   }
 }
 
+/* --- FOOTER & BRANDING --- */
+.hr-line hr {
+  border: none;
+  height: 1px;
+  background-color: var(--hr-color);
+}
+
+.foot-last {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  width: 100%;
+}
+
+.last-time {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.last-time p {
+  color: var(--hr-color);
+  font-weight: 500;
+}
+
+.lastlink .top-links-style {
+  width: 1.15em;
+  height: auto;
+  color: var(--hr-color);
+}
+
+.top-header {
+  margin-bottom: 2em;
+  width: 100%;
+}
+
+.top-header ul {
+  display: flex;
+  justify-content: flex-end;
+  color: var(--top-header-text-color);
+  list-style: none;
+  gap: 1em;
+  padding: 0;
+  margin: 0;
+}
+
+.connect {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.connect p {
+  color: rgb(214, 214, 214);
+}
+
+.connect div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: .9em 1em;
+  border-radius: 1em;
+  border: 1px solid var(--pro-grid-border-color);
+  max-width: 100%;
+  box-sizing: border-box;
+  background-color: var(--pro-grid-bg-color);
+}
+
+/* --- GITHUB CHART (DESKTOP) --- */
+.github-chart-wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.github-chart-scroll {
+  width: 100%;
+}
+
+.github-chart {
+  opacity: 0.65;
+  display: block;
+  height: auto;
+  position: relative;
+  left: -27.5px;
+}
+
+@media (min-width: 650px) {
+  .github-chart {
+    width: calc(100% + 28px);
+  }
+}
 
 /* ===========================================================
-   📱 MOBILE RESPONSIVE OVERRIDES
-   Nothing above was changed — these just scale things down
-   for smaller screens using the same CSS variables/classes.
+   📱 MOBILE RESPONSIVE COHESION OVERRIDES
    =========================================================== */
-
 @media (max-width: 768px) {
   :root {
     --font-size-sm: 0.95em;
@@ -507,6 +556,7 @@ nav h3 {
 
   nav {
     gap: var(--spacing-md);
+    max-width: 100%;
   }
 
   .s-head h1 {
@@ -565,9 +615,11 @@ nav h3 {
     font-size: 1.05em;
   }
 
+  /* Fixed mobile layout behavior for responsive typography flow */
   .exp-title {
-    gap: 1em;
+    gap: 0.4em 1em; 
     flex-wrap: wrap;
+    align-items: flex-start;
   }
 
   .exp-description {
@@ -584,12 +636,26 @@ nav h3 {
     height: 36px;
     border-width: 3px;
   }
+
+  .last-time {
+    flex-direction: column;
+    gap: 1em;
+    text-align: center;
+  }
+
+  .top-header ul {
+    justify-content: flex-end;
+  }
 }
 
 @media (max-width: 420px) {
   :root {
     --font-size-lg: 1.3em;
     --nav-avatar-size: 2.8em;
+  }
+
+  .top-header ul {
+    font-size: .8em;
   }
 
   .nav-img img {
@@ -608,38 +674,9 @@ nav h3 {
   .project-card h3 {
     font-size: 1em;
   }
-
-  .exp-title {
-    gap: .6em;
-  }
 }
 
-/* Desktop — unchanged behavior */
-.github-chart-wrapper {
-  overflow: hidden;
-  width: 100%;
-  position: relative;
-}
-
-.github-chart-scroll {
-  width: 100%;
-}
-
-.github-chart {
-  opacity: 0.65;
-  display: block;
-  height: auto;
-  position: relative;
-  left: -27.5px;
-}
-
-@media (min-width: 650px) {
-  .github-chart {
-    width: calc(100% + 28px);
-  }
-}
-
-/* Mobile — swipeable with fixed height + edge fades */
+/* --- GITHUB SCROLL LOGIC FOR MOBILE --- */
 @media (max-width: 650px) {
   .github-chart-wrapper {
     height: 110px;
@@ -648,7 +685,6 @@ nav h3 {
     width: 100% !important;
   }
 
-  /* Solid edge blurs that don't cause line glitches */
   .github-chart-wrapper::before,
   .github-chart-wrapper::after {
     content: "";
@@ -660,7 +696,6 @@ nav h3 {
     pointer-events: none;
   }
 
-
   .github-chart-scroll {
     display: block !important;
     white-space: nowrap;
@@ -670,8 +705,6 @@ nav h3 {
     width: 100%;
     height: 100%;
     touch-action: pan-x;
-    padding-left: 0px;
-    padding-right: 0px; /* Snaps perfectly to the edge */
   }
 
   .github-chart {
@@ -681,15 +714,9 @@ nav h3 {
     height: 100%;
     opacity: 0.65;
     vertical-align: top;
-    
-    /* 1. FIX: Reset the desktop positioning properties entirely */
     position: static !important;
     left: 0 !important;
-
-    /* 2. FIX: Slice off the first 28px text area cleanly */
     clip-path: inset(0 0 0 28px);
-
-    /* 3. FIX: Pull the remaining grid left to cover the sliced gap without leaving a dead zone on the right */
     margin-left: -28px;
     margin-right: 0px !important;
   }

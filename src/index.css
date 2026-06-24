@@ -24,6 +24,7 @@ img {
     display: block;
 }
 
+
 body {
     height: fit-content;
     display: flex;
@@ -86,7 +87,7 @@ body::before {
     width: 100%;
     max-width: 45em;
     padding: 2em;
-    gap: 2em;
+    gap: 3em;
     height: fit-content;
     /*
   border-left: 1.5px solid var(--root-border);

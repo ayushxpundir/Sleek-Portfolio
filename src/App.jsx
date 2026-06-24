@@ -1,5 +1,4 @@
 import { useEffect, useLayoutEffect } from 'react'
-/* FIX: Changed back to useLocation */
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import './App.css'
 import Header from './Components/Header'
@@ -14,8 +13,10 @@ import Links from './Components/Links'
 import Loader from './Components/Loader'
 import Certifications from './Components/Certifications'
 import GitHub from './Components/GitHub'
-
-// FIX: This component resets position BEFORE the browser draws the frame
+import Footerwork from './Components/Footerwork'
+import Topheader from './Components/Topheader'
+import Connect from './Components/Connect'
+// Reset position BEFORE the browser draws the frame
 function InstantStartAtTop() {
   const { pathname } = useLocation();
 
@@ -29,6 +30,7 @@ function InstantStartAtTop() {
 function Home() {
   useEffect(() => {
     const savedY = sessionStorage.getItem("homeScrollY");
+
     if (savedY !== null) {
       window.scrollTo(0, parseInt(savedY, 10));
       sessionStorage.removeItem("homeScrollY");
@@ -45,24 +47,32 @@ function Home() {
       <Experience />
       <Projects />
       <Certifications />
+      <Connect />
     </>
-  )
+  );
 }
 
 function App() {
   return (
     <>
       <Loader />
+
       <BrowserRouter>
-        {/* FIX: Replaced broken element with our instant-frame blocker */}
-        <InstantStartAtTop /> 
+        <InstantStartAtTop />
+
+        {/* Visible on all pages */}
+        <Topheader />
+
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/projects" element={<AllProjects />} />
+            <Route path="/experience" element={<AllExperience />} />
+            <Route path="/certifications" element={<AllCertifications />} />
+          </Routes>
         
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<AllProjects />} />
-          <Route path="/experience" element={<AllExperience />} />
-          <Route path="/certifications" element={<AllCertifications />} />
-        </Routes>
+
+        {/* Footer visible on all pages */}
+        <Footerwork />
       </BrowserRouter>
     </>
   );
