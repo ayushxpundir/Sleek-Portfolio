@@ -34,8 +34,8 @@ const experiences = [
             "Optimized UI and site layouts, increasing average user engagement by 35% for global clients.",
         ],
         stack: [
-            { title: "Figma", icon: IoLogoFigma },
             { title: "Cursor AI", icon: CursorIcon },
+            { title: "Figma", icon: IoLogoFigma },
             { title: "Python", icon: FaPython },
             { title: "Framer", icon: PiFramerLogoFill },
             { title: "Adobe Suite", icon: BiLogoAdobe },
