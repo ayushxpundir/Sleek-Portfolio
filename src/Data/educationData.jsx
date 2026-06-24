@@ -4,9 +4,9 @@ const educations = [
   {
     id: 1,
     active: false,
-    title: "BS in Data Science",
-    company: "IIT Madras",
-    companyClass: "edu-inst", // Custom class for styling if needed
+    title: "IIT Madras",
+    company: "BS in Data Science",
+    companyClass: "exp-span", // Custom class for styling if needed
     subtitle: "Pursuing",
     description: [
     //   "Deepening knowledge in advanced statistical modeling, data structures, and machine learning.",
@@ -19,9 +19,9 @@ const educations = [
   {
     id: 2,
     active: false,
-    title: "Higher Secondary",
-    company: "CBSE",
-    companyClass: "edu-inst",
+    title: "CBSE",
+    company: "Higher Secondary",
+    companyClass: "exp-span",
     subtitle: "2024",
     description: [
       // "Focused on Core Mathematics and Computer Science basics."
