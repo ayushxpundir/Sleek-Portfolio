@@ -1,5 +1,6 @@
-import { useEffect } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { useEffect, useLayoutEffect } from 'react'
+/* FIX: Changed back to useLocation */
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import './App.css'
 import Header from './Components/Header'
 import Stack from './Components/Stack'
@@ -13,6 +14,17 @@ import Links from './Components/Links'
 import Loader from './Components/Loader'
 import Certifications from './Components/Certifications'
 import GitHub from './Components/GitHub'
+
+// FIX: This component resets position BEFORE the browser draws the frame
+function InstantStartAtTop() {
+  const { pathname } = useLocation();
+
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function Home() {
   useEffect(() => {
@@ -42,6 +54,9 @@ function App() {
     <>
       <Loader />
       <BrowserRouter>
+        {/* FIX: Replaced broken element with our instant-frame blocker */}
+        <InstantStartAtTop /> 
+        
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<AllProjects />} />
@@ -50,7 +65,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,9 +1,15 @@
+import { useLayoutEffect } from "react";
 import experiences from "../Data/experienceData";
 import { Link } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa6";
 import { ExperienceItem } from "./Experience.jsx";
 
 function AllExperience() {
+    // FIX: useLayoutEffect runs BEFORE the browser paints your content to the screen
+    useLayoutEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <section>
             <div className="top-back">
