@@ -392,9 +392,10 @@ nav h3 {
 
 .exp-description {
   color: rgb(185, 181, 181);
-  margin-left: 15px;
   font-size: 1em;
+  list-style: none ;
 }
+
 
 .exp-stack {
   display: flex;
@@ -628,7 +629,6 @@ nav h3 {
 
   .exp-description {
     font-size: .85em;
-    margin-left: 15px;
   }
 
   .exp-sicons {

@@ -30,8 +30,8 @@ const experiences = [
         subtitle: "Remote, Part-Time | Jul 24 - Feb 26",
         active: false,
         description: [
-            "Designed responsive websites across multiple platforms with a 98% client satisfaction rate.",
-            "Optimized UI and site layouts, increasing average user engagement by 35% for global clients.",
+            "Designed responsive websites across multiple platforms with a 98% client satisfaction rate. Optimized UI and site layouts, increasing average user engagement by 35% for global clients.",
+            "",
         ],
         stack: [
             { title: "Cursor AI", icon: CursorIcon },
