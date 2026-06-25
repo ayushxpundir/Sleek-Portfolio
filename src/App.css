@@ -348,7 +348,7 @@ nav h3 {
 .line {
   width: 1.5px;
   background-color: var(--timeline-line-color);
-  flex-grow: 1;
+  flex: 1;
   border-radius: 10px;
 }
 
@@ -628,7 +628,7 @@ nav h3 {
 
   .exp-description {
     font-size: .85em;
-    margin-left: 10px;
+    margin-left: 15px;
   }
 
   .exp-sicons {
