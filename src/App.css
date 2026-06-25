@@ -342,7 +342,22 @@ nav h3 {
 
 .dot.active {
   background-color: var(--accent-green);
-  outline: 4px solid var(--accent-green-alpha);
+  
+  /* Fallback alpha value if --accent-green-alpha isn't defined: rgba(0, 240, 150, 0.4) */
+  box-shadow: 0 0 8px 2px var(--accent-green-alpha, rgba(0, 240, 150, 0.4));
+  
+  /* Optional: Smooth pulsing effect */
+  animation: pulse-glow 2s infinite alternate ease-in-out;
+}
+
+/* Optional keyframes for a premium breathing glow effect */
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 6px 1px var(--accent-green-alpha, rgba(0, 240, 150, 0.3));
+  }
+  100% {
+    box-shadow: 0 0 14px 4px var(--accent-green-alpha, rgba(0, 240, 150, 0.6));
+  }
 }
 
 .line {

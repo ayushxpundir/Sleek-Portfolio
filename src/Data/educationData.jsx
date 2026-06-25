@@ -3,7 +3,7 @@ import { SiGooglecolab, SiPython } from "react-icons/si"; // Example icons if yo
 const educations = [
   {
     id: 1,
-    active: false,
+    active: true,
     title: "IIT Madras",
     company: "Bachelor of Science",
     companyClass: "exp-span", // Custom class for styling if needed
