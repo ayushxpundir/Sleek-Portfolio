@@ -393,7 +393,7 @@ nav h3 {
 .exp-description {
   color: rgb(185, 181, 181);
   font-size: 1em;
-  list-style: none ;
+  list-style: none;
 }
 
 
@@ -642,9 +642,14 @@ nav h3 {
   }
 
   .last-time {
+    gap: .5em;
     flex-direction: column;
-    gap: 1em;
-    text-align: center;
+  }
+
+  .lastlink .top-links-style {
+    width: 1em;
+    height: auto;
+    color: var(--hr-color);
   }
 
   .top-header ul {
@@ -736,10 +741,13 @@ nav h3 {
 .reveal-curtain {
   position: fixed;
   inset: 0;
-  background-color: #0b0b0b; /* CHANGE THIS to match your portfolio's exact background color */
-  z-index: 9999;             /* Sits above absolutely everything */
-  pointer-events: none;      /* Ensures it doesn't block user clicks while fading */
-  
+  background-color: #0b0b0b;
+  /* CHANGE THIS to match your portfolio's exact background color */
+  z-index: 9999;
+  /* Sits above absolutely everything */
+  pointer-events: none;
+  /* Ensures it doesn't block user clicks while fading */
+
   /* Forces a hardware keyframe animation that runs for 1.2 seconds */
   animation: fadeOutCurtain .5s ease-in-out forwards;
 }
@@ -748,8 +756,10 @@ nav h3 {
   0% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
-    display: none; /* Entirely deletes the curtain layout block at the end */
+    display: none;
+    /* Entirely deletes the curtain layout block at the end */
   }
 }
