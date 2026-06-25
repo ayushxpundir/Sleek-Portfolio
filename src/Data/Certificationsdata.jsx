@@ -1,6 +1,3 @@
-import { IoChatbubblesOutline } from "react-icons/io5";
-import { FaMicrosoft } from "react-icons/fa6";
-import { GoCopilot } from "react-icons/go";
 import CopilotFillIcon from "@iconify-react/mingcute/copilot-fill";
 import MicrosoftFillIcon from '@iconify-react/ri/microsoft-fill';
 import ClaudeFillIcon from '@iconify-react/ri/claude-fill';

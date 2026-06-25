@@ -3,8 +3,7 @@ import { BsLinkedin } from "react-icons/bs";
 import { BsTwitterX } from "react-icons/bs";
 import { SiLeetcode } from "react-icons/si";
 import { BsInstagram } from "react-icons/bs";
-import EmailFill12Icon from '@iconify-react/garden/email-fill-12';
-
+import SendEmailIcon from '@iconify-react/streamline-pixel/send-email';
 
 function Links() {
     return (
@@ -15,7 +14,7 @@ function Links() {
                 <span className="icon-box" data-title="X/Twitter"><a href="https://x.com/ayushxpundir" target="_blank" ><BsTwitterX className="top-links-style" /></a></span>
                 <span className="icon-box" data-title="Instagram"><a href="https://www.instagram.com/ayushxpundir" target="_blank" ><BsInstagram   className="top-links-style stack-icon" /></a></span>
                 <span className="icon-box" data-title="LeetCode"><a href="https://leetcode.com/u/ayushxpundir/" target="_blank" ><SiLeetcode  className="top-links-style stack-icon" /></a></span>
-                <span className="icon-box" data-title="Email"><a href="mailto:ayushpundir0510@gmail.com" target="_blank" ><EmailFill12Icon    className="top-links-style stack-icon" /></a></span>
+                <span className="icon-box" data-title="Email"><a href="mailto:ayushpundir0510@gmail.com" target="_blank" ><SendEmailIcon     className="top-links-style stack-icon" /></a></span>
                 {/* <span className="icon-box" data-title="Hugging Face"><a href="https://huggingface.co/ayushxpundir" target="_blank" ><Icon icon="simple-icons:huggingface" className="top-links-style stack-icon" /></a></span> */}
             </div>
         </>
