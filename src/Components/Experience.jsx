@@ -48,7 +48,7 @@ function Experience() {
         <section>
             <div className="experience">
                 <div className="s-head">
-                    <h1>EXPERIENCES</h1>
+                    <h1>EXPERIENCE</h1>
                 </div>
                 <div className="exp-work">
                     <div className="timeline-container">
