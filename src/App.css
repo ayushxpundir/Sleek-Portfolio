@@ -74,10 +74,12 @@
 
 @keyframes pulse-glow {
     0% {
-        box-shadow: 0 0 6px 1px var(--accent-green-alpha, rgba(0, 240, 150, 0.3));
+        box-shadow: 0 0 6px 1px
+            var(--accent-green-alpha, rgba(0, 240, 150, 0.3));
     }
     100% {
-        box-shadow: 0 0 14px 4px var(--accent-green-alpha, rgba(0, 240, 150, 0.6));
+        box-shadow: 0 0 14px 4px
+            var(--accent-green-alpha, rgba(0, 240, 150, 0.6));
     }
 }
 
@@ -410,7 +412,8 @@ nav h3 {
     transition: color 0.3s ease;
 }
 
-.arrow-right, .arrow-left {
+.arrow-right,
+.arrow-left {
     display: flex;
     width: 0.8em;
     color: var(--text-see-more);
@@ -724,22 +727,22 @@ nav h3 {
     width: 100%;
 }
 
-.github-chart {
-    opacity: 0.65;
-    display: block;
-    height: auto;
-    position: relative;
-    left: -27.5px;
-    transition: opacity 0.3s ease;
-}
-
-.github-chart-wrapper:hover .github-chart {
-    opacity: 0.95;
-}
-
-@media (min-width: 650px) {
+@media (min-width: 768px) {
     .github-chart {
         width: calc(100% + 28px);
+    }
+
+    .github-chart {
+        opacity: 0.75;
+        display: block;
+        height: auto;
+        position: relative;
+        left: -27.5px;
+        transition: opacity 0.3s ease;
+    }
+
+    .github-chart-wrapper:hover .github-chart {
+        opacity: 0.95;
     }
 }
 
@@ -772,6 +775,8 @@ nav h3 {
     animation: pureFadeIn 0.6s ease-out forwards;
 }
 
+
+
 /* ===========================================================
    📱 MOBILE RESPONSIVE OVERRIDES
    =========================================================== */
@@ -791,9 +796,15 @@ nav h3 {
         letter-spacing: 0.1em;
     }
 
-    nav h1 { font-size: 1.5em; }
-    nav h2 { font-size: 0.95em; }
-    nav h3 { font-size: 0.85em; }
+    nav h1 {
+        font-size: 1.5em;
+    }
+    nav h2 {
+        font-size: 0.95em;
+    }
+    nav h3 {
+        font-size: 0.85em;
+    }
 
     .stack-icon {
         width: 1.9em;
@@ -876,12 +887,16 @@ nav h3 {
     }
 }
 
+    
+
 @media (max-width: 420px) {
     .nav-img img {
         width: 3em;
     }
 
-    nav h1 { font-size: 1.3em; }
+    nav h1 {
+        font-size: 1.3em;
+    }
 
     .top-header ul {
         font-size: 0.8em;
@@ -940,7 +955,6 @@ nav h3 {
         width: auto !important;
         max-width: none !important;
         height: 100%;
-        opacity: 0.65;
         vertical-align: top;
         position: static !important;
         left: 0 !important;
@@ -951,7 +965,7 @@ nav h3 {
 }
 
 .category-title {
-    color: var(--text-muted); 
+    color: var(--text-muted);
     font-size: 0.9em;
     font-weight: 400;
 }
