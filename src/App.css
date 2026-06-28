@@ -892,6 +892,7 @@ nav h3 {
 @media (max-width: 420px) {
     .nav-img img {
         width: 3em;
+        height: auto;
     }
 
     nav h1 {
