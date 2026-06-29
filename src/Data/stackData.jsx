@@ -31,11 +31,11 @@ const stackCategories = [
         category: "Backend & Databases",
         items: [
             { title: "Python", icon: PythonFillIcon },
-            { title: "MongoDB", icon: SiMongodb },
             { title: "PostgreSQL", icon: PostgresqlIcon },
             { title: "Node.js", icon: NodeFillIcon },
             { title: "MySQL", icon: GrMysql },
             { title: "Express.js", icon: SiExpress },
+            { title: "MongoDB", icon: SiMongodb },
         ]
     },
     {
