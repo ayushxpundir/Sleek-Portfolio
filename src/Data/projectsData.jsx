@@ -1,4 +1,4 @@
-import { BsJavascript, BsCss } from "react-icons/bs";
+import { BsJavascript } from "react-icons/bs";
 import roxo from "../assets/roxo.webp";
 import pera from "../assets/pera.webp";
 import paso from "../assets/paso.webp";

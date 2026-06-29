@@ -102,6 +102,8 @@
     }
 }
 
+
+
 /* ===========================================================
    🏗️ CORE STRUCTURE
    =========================================================== */
@@ -163,13 +165,18 @@ nav h3 {
     font-style: italic;
 }
 
+.s-head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5em;
+}
+
 .s-head h1 {
     font-size: 1em;
     letter-spacing: 0.15em;
     font-weight: 400;
     font-family: "Oswald", sans-serif;
     color: var(--text-lowlight);
-    margin-bottom: 1em;
 }
 
 .stack-i {
@@ -271,6 +278,7 @@ nav h3 {
     list-style: none;
     font-weight: 450;
     font-size: 1.177em;
+    margin-bottom: 1em;
 }
 
 /* --- Projects Component --- */
@@ -381,7 +389,6 @@ nav h3 {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    margin: 1em 0;
     align-items: center;
     width: fit-content;
     cursor: pointer;
@@ -394,13 +401,12 @@ nav h3 {
 }
 
 .box-see-more {
-    margin-top: 1em;
     display: flex;
     justify-content: center;
     align-items: center;
     width: fit-content;
     height: fit-content;
-    gap: 0.5em;
+    gap: .7em;
     border-radius: 0.5em;
 }
 
@@ -408,7 +414,7 @@ nav h3 {
     font-size: 1em;
     font-weight: 300;
     border-radius: 0.5em;
-    color: var(--text-see-more);
+    color: var(--text-lowlight);
     transition: color 0.3s ease;
 }
 
@@ -416,7 +422,7 @@ nav h3 {
 .arrow-left {
     display: flex;
     width: 0.8em;
-    color: var(--text-see-more);
+    color: var(--text-lowlight);
     transition:
         transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
         color 0.3s ease;
@@ -446,9 +452,9 @@ nav h3 {
 
 .top-links-style {
     display: flex;
-    width: 1.8em;
+    width: 1.4em;
     height: auto;
-    color: var(--accent-link-style);
+    color: rgb(202, 202, 202);
     transition: color 0.3s ease;
 }
 
@@ -727,7 +733,7 @@ nav h3 {
     width: 100%;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 650px) {
     .github-chart {
         width: calc(100% + 28px);
     }
@@ -806,9 +812,7 @@ nav h3 {
         font-size: 0.85em;
     }
 
-    .stack-icon {
-        width: 1.9em;
-    }
+
 
     .stack-i {
         gap: 0.45em;
@@ -845,9 +849,7 @@ nav h3 {
         font-size: 0.8em;
     }
 
-    .top-links-style {
-        width: 1.5em;
-    }
+
 
     .timeline-row {
         gap: 10px;
@@ -882,9 +884,7 @@ nav h3 {
         flex-direction: column;
     }
 
-    .lastlink .top-links-style {
-        width: 1em;
-    }
+
 }
 
     
@@ -904,7 +904,8 @@ nav h3 {
     }
 
     .stack-icon {
-        width: 1.7em;
+        width: 1.2em;
+        height: auto;
     }
 
     .icon-box::before {

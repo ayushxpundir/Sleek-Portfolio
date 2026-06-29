@@ -1,18 +1,8 @@
-import { BsTypescript } from "react-icons/bs";
-import { FaPython, FaGithub, FaNodeJs } from "react-icons/fa";
-import { RiTailwindCssFill, RiVercelFill } from "react-icons/ri";
-import { SiMongodb, SiExpress, SiGnubash, SiNpm, SiNetlify } from "react-icons/si";
-import { FaGitAlt } from "react-icons/fa6";
-import { GrMysql } from "react-icons/gr";
+import {  RiVercelFill } from "react-icons/ri";
+import {  SiNetlify } from "react-icons/si";
 import { IoLogoFigma } from "react-icons/io5";
-import PostgresqlIcon from '@iconify-react/simple-icons/postgresql';
-import BaselineAdobeIcon from '@iconify-react/ic/baseline-adobe';
 import FramerSolidIcon from '@iconify-react/teenyicons/framer-solid';
-import ReactFillIcon from '@iconify-react/akar-icons/react-fill';
-import NextjsIcon from '@iconify-react/devicon-plain/nextjs';
-import VscodeIcon from '@iconify-react/codicon/vscode';
 import CursorIcon from '@iconify-react/simple-icons/cursor';
-import AdobeSolidIcon from '@iconify-react/streamline/adobe-solid';
 import PythonFillIcon from '@iconify-react/akar-icons/python-fill';
 import PhotoshopIcon from '@iconify-react/devicon-plain/photoshop';
 

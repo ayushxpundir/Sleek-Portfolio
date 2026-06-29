@@ -45,7 +45,7 @@ function Stack() {
   return (
     <section>
       <div className="s-head">
-        <h1>TECH STACK</h1>
+        <h1>TECH STACK I USE</h1>
       </div>
       <div className="stack" style={{ gap: "1em" }}>
         {stackCategories.map(({ category, items }) => (

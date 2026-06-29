@@ -1,8 +1,6 @@
 import { BsTypescript } from "react-icons/bs";
-import { FaPython, FaGithub, FaNodeJs } from "react-icons/fa";
 import { RiTailwindCssFill, RiVercelFill } from "react-icons/ri";
 import { SiMongodb, SiExpress, SiGnubash, SiNpm, SiNetlify } from "react-icons/si";
-import { FaGitAlt } from "react-icons/fa6";
 import { GrMysql } from "react-icons/gr";
 import { IoLogoFigma } from "react-icons/io5";
 import PostgresqlIcon from '@iconify-react/simple-icons/postgresql';
@@ -11,7 +9,6 @@ import ReactFillIcon from '@iconify-react/akar-icons/react-fill';
 import NextjsIcon from '@iconify-react/devicon-plain/nextjs';
 import VscodeIcon from '@iconify-react/codicon/vscode';
 import CursorIcon from '@iconify-react/simple-icons/cursor';
-import AdobeSolidIcon from '@iconify-react/streamline/adobe-solid';
 import PythonFillIcon from '@iconify-react/akar-icons/python-fill';
 import NodeFillIcon from '@iconify-react/akar-icons/node-fill';
 import PhotoshopIcon from '@iconify-react/devicon-plain/photoshop';
@@ -34,10 +31,10 @@ const stackCategories = [
         category: "Backend & Databases",
         items: [
             { title: "Python", icon: PythonFillIcon },
-            { title: "Node.js", icon: NodeFillIcon },
-            { title: "PostgreSQL", icon: PostgresqlIcon },
-            { title: "MySQL", icon: GrMysql },
             { title: "MongoDB", icon: SiMongodb },
+            { title: "PostgreSQL", icon: PostgresqlIcon },
+            { title: "Node.js", icon: NodeFillIcon },
+            { title: "MySQL", icon: GrMysql },
             { title: "Express.js", icon: SiExpress },
         ]
     },

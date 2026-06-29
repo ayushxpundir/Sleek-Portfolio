@@ -53,6 +53,18 @@ function Certifications() {
         <div className="experience">
           <div className="s-head">
             <h1>CERTIFICATIONS</h1>
+            <Link
+              to="/certifications"
+              className="See-more"
+              onClick={() =>
+                sessionStorage.setItem("homeScrollY", window.scrollY)
+              }
+            >
+              <div className="box-see-more">
+                <h1>SHOW ALL</h1>
+                <FaArrowRight className="arrow-right" />
+              </div>
+            </Link>
           </div>
           <div className="exp-work">
             <div className="timeline-container">
@@ -61,18 +73,6 @@ function Certifications() {
               ))}
             </div>
           </div>
-          <Link
-            to="/certifications"
-            className="See-more"
-            onClick={() =>
-              sessionStorage.setItem("homeScrollY", window.scrollY)
-            }
-          >
-            <div className="box-see-more">
-              <h1>Show all certifications</h1>
-              <FaArrowRight className="arrow-right" />
-            </div>
-          </Link>
         </div>
       </section>
     </>

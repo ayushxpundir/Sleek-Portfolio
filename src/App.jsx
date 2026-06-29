@@ -9,7 +9,6 @@ import AllProjects from './Components/AllProjects'
 import AllExperience from './Components/AllExperience'
 import AllCertifications from './Components/Allcertifications'
 import Experience from './Components/Experience'
-import Links from './Components/Links'
 import Certifications from './Components/Certifications'
 import GitHub from './Components/GitHub'
 import Footerwork from './Components/Footerwork'
@@ -86,7 +85,6 @@ function Home() {
     <>
       <div className="reveal-on-scroll"><Header /></div>
       <div className="reveal-on-scroll"><About /></div>
-      <div className="reveal-on-scroll"><Links /></div>
       <div className="reveal-on-scroll"><GitHub /></div>
       <div className="reveal-on-scroll"><Stack /></div>
       <div className="reveal-on-scroll"><Experience /></div>

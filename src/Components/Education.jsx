@@ -1,7 +1,4 @@
 import educations from "../Data/educationData";
-import { FaArrowRight } from "react-icons/fa6";
-import { Link } from "react-router-dom";
-
 function EducationItem({ edu }) {
     return (
         <div className="exp-cont edu-cont"> {/* Added an extra class for safety */}
