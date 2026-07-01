@@ -21,7 +21,7 @@ const educations = [
     title: "CBSE",
     company: "Higher Secondary",
     companyClass: "exp-span",
-    subtitle: "Science",
+    subtitle: "Science (PCM)",
     description: [
       // "Focused on Core Mathematics and Computer Science basics."
     ],

@@ -63,10 +63,9 @@
     color: var(--text-white);
 }
 
-
 /* ===========================================================
-   🎬 ANIMATIONS & KEYFRAMES
-   =========================================================== */
+       🎬 ANIMATIONS & KEYFRAMES
+       =========================================================== */
 .fade-in-element {
     animation: fadeInUp 0.7s var(--ease-smooth) both;
     transform: translateZ(0);
@@ -130,8 +129,8 @@
 }
 
 /* ===========================================================
-   🏗️ CORE STRUCTURE
-   =========================================================== */
+       🏗️ CORE STRUCTURE
+       =========================================================== */
 .stack {
     display: flex;
     flex-direction: column;
@@ -161,12 +160,6 @@ nav {
         box-shadow 0.4s ease;
 }
 
-.nav-img:hover img {
-    transform: scale(1.05) rotate(1.5deg) perspective(1px) translateZ(0);
-    border-color: var(--accent-green);
-    box-shadow: 0 8px 26px rgba(0, 221, 153, 0.2);
-}
-
 .nav-main-text {
     display: flex;
     flex-direction: column;
@@ -176,16 +169,20 @@ nav {
 nav h1 {
     font-size: 2em;
     color: var(--text-primary);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.15;
     letter-spacing: -0.01em;
 }
 
 nav h2 {
-    font-size: 1.15em;
+    font-size: 1.2em;
     color: var(--text-muted);
-    font-weight: 600;
-    background: linear-gradient(90deg, var(--accent-green), var(--text-muted) 60%);
+    font-weight: 500;
+    background: linear-gradient(
+        90deg,
+        var(--accent-green),
+        var(--text-muted) 60%
+    );
     -webkit-background-clip: text;
     background-clip: text;
 }
@@ -204,15 +201,14 @@ nav h3 {
     margin-bottom: 1.6em;
 }
 
-.s-head h1, .box-see-more h1 {
+.s-head h1,
+.box-see-more h1 {
     font-size: 0.95em;
     letter-spacing: 0.18em;
     font-weight: 500;
     font-family: "Oswald", sans-serif;
     color: var(--text-lowlight);
 }
-
-
 
 .stack-i {
     display: flex;
@@ -238,10 +234,6 @@ nav h3 {
         transform 0.25s var(--ease-smooth);
 }
 
-.icon-box:hover {
-    transform: translateY(-2px) translateZ(0);
-}
-
 .stack-icon {
     width: 2em;
     height: auto;
@@ -250,11 +242,6 @@ nav h3 {
     justify-content: center;
     align-items: center;
     transition: color 0.3s ease;
-}
-
-.icon-box:hover .stack-icon,
-.icon-box:focus .stack-icon {
-    color: var(--accent-green);
 }
 
 .icon-box::before {
@@ -303,14 +290,6 @@ nav h3 {
         transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.icon-box:hover::before,
-.icon-box:hover::after,
-.icon-box:focus::before,
-.icon-box:focus::after {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0) scale(1) translateZ(0);
-}
-
 .ab-info {
     color: rgb(206, 206, 206);
     list-style: none;
@@ -333,7 +312,7 @@ nav h3 {
     border-radius: var(--radius-md);
     display: flex;
     flex-direction: column;
-    border: 1px solid var(--pro-grid-border-color);
+    /*border: 1px solid var(--pro-grid-border-color);*/
     overflow: visible;
     height: fit-content;
     will-change: transform;
@@ -350,34 +329,21 @@ nav h3 {
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
 }
 
-.project-card:hover {
-    border-color: var(--card-hover-border);
-    box-shadow: 0 16px 36px var(--card-hover-shadow);
-    transform: translateY(-4px) translateZ(0);
-}
-
 .project-image-wrapper {
     width: 100%;
     overflow: hidden;
-    border-top-left-radius: var(--radius-md);
-    border-top-right-radius: var(--radius-md);
+    border-radius: var(--radius-md);
 }
 
 .project-image-wrapper img {
     width: 100%;
     object-fit: cover;
     border-radius: var(--radius-md);
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
     display: block;
     will-change: transform;
     backface-visibility: hidden;
     transform: translateZ(0);
     transition: transform 0.7s var(--ease-smooth);
-}
-
-.project-card:hover .project-image-wrapper img {
-    transform: scale(1.05) translateZ(0);
 }
 
 .project-card h3 {
@@ -386,10 +352,6 @@ nav h3 {
     font-size: 1.32em;
     letter-spacing: -0.01em;
     transition: color 0.3s ease;
-}
-
-.project-card:hover h3 {
-    color: var(--accent-green-soft);
 }
 
 .pro-det {
@@ -423,13 +385,9 @@ nav h3 {
     width: 1.5em;
     height: auto;
     color: var(--proj-ico);
-    transition: color 0.3s ease, transform 0.3s var(--ease-smooth);
-}
-
-.pro-links a:hover .pro-down-ico,
-.top-inside-links a:hover .tech-istyle {
-    color: var(--accent-green);
-    transform: translateY(-2px);
+    transition:
+        color 0.3s ease,
+        transform 0.3s var(--ease-smooth);
 }
 
 .See-more {
@@ -457,7 +415,9 @@ nav h3 {
     gap: 0.7em;
     border-radius: var(--radius-sm);
     border: 1px solid transparent;
-    transition: border-color 0.3s ease, background-color 0.3s ease;
+    transition:
+        border-color 0.3s ease,
+        background-color 0.3s ease;
 }
 
 .See-more h1 {
@@ -477,20 +437,6 @@ nav h3 {
         color 0.3s ease;
 }
 
-.See-more:hover h1 {
-    color: var(--accent-green-soft);
-}
-
-.See-more:hover .arrow-right {
-    color: var(--accent-green-soft);
-    transform: translateX(5px);
-}
-
-.See-more:hover .arrow-left {
-    color: var(--accent-green-soft);
-    transform: translateX(-5px);
-}
-
 .top-inside-links {
     display: flex;
     justify-content: flex-start;
@@ -504,12 +450,9 @@ nav h3 {
     width: 1.4em;
     height: auto;
     color: rgb(202, 202, 202);
-    transition: color 0.3s ease, transform 0.3s var(--ease-smooth);
-}
-
-.top-inside-links a:hover .top-links-style {
-    color: var(--text-white);
-    transform: translateY(-2px);
+    transition:
+        color 0.3s ease,
+        transform 0.3s var(--ease-smooth);
 }
 
 /* --- Timeline Component --- */
@@ -539,11 +482,6 @@ nav h3 {
         box-shadow 0.3s ease;
 }
 
-.timeline-row:hover .dot:not(.active) {
-    background-color: var(--text-primary);
-    transform: scale(1.25);
-}
-
 .dot.active {
     background-color: var(--accent-green);
     box-shadow: 0 0 8px 2px var(--accent-green-alpha, rgba(0, 240, 150, 0.4));
@@ -558,10 +496,6 @@ nav h3 {
     transition: background-color 0.3s ease;
 }
 
-.timeline-row:hover .line {
-    background-color: var(--hr-color);
-}
-
 .timeline-content {
     padding-bottom: 2.1em;
     display: flex;
@@ -571,10 +505,6 @@ nav h3 {
     backface-visibility: hidden;
     transform: translateZ(0);
     transition: transform 0.35s var(--ease-smooth);
-}
-
-.timeline-row:hover .timeline-content {
-    transform: translateX(3px) translateZ(0);
 }
 
 .timeline-content h3 {
@@ -594,10 +524,6 @@ nav h3 {
 
 .subtitle a {
     transition: color 0.3s ease;
-}
-
-.subtitle a:hover {
-    color: var(--accent-green-soft);
 }
 
 .exp-title {
@@ -640,11 +566,6 @@ nav h3 {
         color 0.3s ease;
 }
 
-.exp-stack .exp-sicons:hover {
-    color: var(--accent-green);
-    transform: translateY(-2px);
-}
-
 .exp-cont {
     display: flex;
     flex-direction: column;
@@ -682,7 +603,13 @@ nav h3 {
 .hr-line hr {
     border: none;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--hr-color) 30%, var(--hr-color) 70%, transparent);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--hr-color) 30%,
+        var(--hr-color) 70%,
+        transparent
+    );
     opacity: 0.6;
 }
 
@@ -695,29 +622,26 @@ nav h3 {
 
 .last-time {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    gap: 0.5em;
 }
 
 .last-time p {
     color: var(--hr-color);
     font-weight: 500;
+    font-size: 1.1em;
 }
 
 .lastlink .top-links-style {
-    width: 1.15em;
+    width: .9em;
     height: auto;
     color: var(--hr-color);
     transition:
         color 0.3s ease,
         transform 0.3s ease;
-}
-
-.lastlink a:hover .top-links-style {
-    color: var(--accent-green);
-    transform: translateY(-2px);
 }
 
 .top-header {
@@ -754,14 +678,6 @@ nav h3 {
     transition: width 0.3s var(--ease-smooth);
 }
 
-.top-header li:hover {
-    color: var(--text-white);
-}
-
-.top-header li:hover::after {
-    width: 100%;
-}
-
 .connect {
     display: flex;
     flex-direction: column;
@@ -781,7 +697,6 @@ nav h3 {
     align-items: center;
     padding: 1em 1.2em;
     border-radius: var(--radius-lg);
-    border: 1px solid var(--pro-grid-border-color);
     max-width: 100%;
     box-sizing: border-box;
     background: var(--pro-grid-bg-gradient);
@@ -791,18 +706,11 @@ nav h3 {
         transform 0.35s var(--ease-smooth);
 }
 
-.connect div:hover {
-    border-color: var(--connect-hover-border);
-    box-shadow: 0 10px 28px var(--connect-hover-shadow);
-    transform: translateY(-3px);
-}
-
 /* --- GitHub Chart --- */
 .github-chart-wrapper {
     overflow: hidden;
     width: 100%;
     position: relative;
-    border-radius: var(--radius-sm);
 }
 
 .github-chart-scroll {
@@ -866,8 +774,115 @@ nav h3 {
 }
 
 /* ===========================================================
-   📱 MOBILE RESPONSIVE OVERRIDES
-   =========================================================== */
+       🚀 GLOBAL HOVER EFFECTS CAPABILITY MEDIA QUERY
+       (Only applies to devices with real pointers like mouse/trackpad)
+       =========================================================== */
+@media (hover: hover) {
+    .nav-img:hover img {
+        transform: scale(1.05) rotate(1.5deg) perspective(1px) translateZ(0);
+        border-color: var(--accent-green);
+        box-shadow: 0 8px 26px rgba(0, 221, 153, 0.2);
+    }
+
+    .icon-box:hover {
+        transform: translateY(-2px) translateZ(0);
+    }
+
+    .icon-box:hover .stack-icon,
+    .icon-box:focus .stack-icon {
+        color: var(--accent-green);
+    }
+
+    .icon-box:hover::before,
+    .icon-box:hover::after,
+    .icon-box:focus::before,
+    .icon-box:focus::after {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1) translateZ(0);
+    }
+
+    .project-card:hover {
+        transform: translateY(-4px) translateZ(0);
+    }
+
+    /*.project-card:hover .project-image-wrapper img {
+        transform: scale(1.05) translateZ(0);
+    }*/
+
+    .project-card:hover h3 {
+        color: var(--accent-green-soft);
+    }
+
+    .pro-links a:hover .pro-down-ico,
+    .top-inside-links a:hover .tech-istyle {
+        color: var(--accent-green);
+        transform: translateY(-2px);
+    }
+
+    .See-more:hover h1 {
+        color: var(--accent-green-soft);
+    }
+
+    .See-more:hover .arrow-right {
+        color: var(--accent-green-soft);
+        transform: translateX(5px);
+    }
+
+    .See-more:hover .arrow-left {
+        color: var(--accent-green-soft);
+        transform: translateX(-5px);
+    }
+
+    .top-inside-links a:hover .top-links-style {
+        color: var(--text-white);
+        transform: translateY(-2px);
+    }
+
+    .timeline-row:hover .dot:not(.active) {
+        background-color: var(--text-primary);
+        transform: scale(1.25);
+    }
+
+    .timeline-row:hover .line {
+        background-color: var(--hr-color);
+    }
+
+    .timeline-row:hover .timeline-content {
+        transform: translateX(3px) translateZ(0);
+    }
+
+    .subtitle a:hover {
+        color: var(--accent-green-soft);
+    }
+
+    .exp-stack .exp-sicons:hover {
+        color: var(--accent-green);
+        transform: translateY(-2px);
+    }
+
+    .lastlink a:hover .top-links-style {
+        color: var(--accent-green);
+        transform: translateY(-2px);
+    }
+
+    .top-header li:hover {
+        color: var(--text-white);
+    }
+
+    .top-header li:hover::after {
+        width: 100%;
+    }
+
+    .connect div:hover {
+        border-color: var(--connect-hover-border);
+        box-shadow: 0 10px 28px var(--connect-hover-shadow);
+        transform: translateY(-3px);
+    }
+}
+
+/* ===========================================================
+       📱 MOBILE RESPONSIVE OVERRIDES
+       =========================================================== */
 @media (max-width: 768px) {
     nav {
         gap: 0.5em;
@@ -879,7 +894,8 @@ nav h3 {
         height: 3.5em;
     }
 
-    .s-head h1, .box-see-more h1 {
+    .s-head h1,
+    .box-see-more h1 {
         font-size: 0.85em;
         letter-spacing: 0.1em;
     }
@@ -904,7 +920,7 @@ nav h3 {
 
     .projects-info {
         grid-template-columns: 1fr;
-        gap: 0.75em;
+        gap: 1.5em;
     }
 
     .project-card h3 {
@@ -957,10 +973,21 @@ nav h3 {
         border-width: 3px;
     }
 
-    .last-time {
-        gap: 0.5em;
-        flex-direction: column;
+    .last-time p {
+        color: var(--hr-color);
+        font-weight: 500;
+        font-size: 1em;
     }
+    
+    .lastlink .top-links-style {
+        width: .8em;
+        height: auto;
+        color: var(--hr-color);
+        transition:
+            color 0.3s ease,
+            transform 0.3s ease;
+    }
+
 }
 
 @media (max-width: 420px) {

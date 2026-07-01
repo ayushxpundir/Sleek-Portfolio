@@ -12,7 +12,7 @@ const certifications = [
         company: "Antrophic",
         companyClass: "exp-span",
         link: "https://verify.skilljar.com/c/oxnn52yi2k3o",
-        issued: "Issued Jun 26",
+        issued: "Show credentials",
         description: [
             "I learned about leveraging Claude's core strengths, like analyzing complex data and adapting its communication style to match mine.",
         ],
@@ -27,7 +27,7 @@ const certifications = [
         company: "Microsoft",
         companyClass: "exp-span",
         link: "https://learn.microsoft.com/en-us/users/ayushpundir-9738/achievements/7de58n7z?ref=https%3A%2F%2Fwww.linkedin.com%2F",
-        issued: "Issued Jun 26",
+        issued: "Show credentials",
         description: [
             "I learned about the fundamentals of generative AI and how tools like Microsoft Copilot are transforming content creation, text-to-image visualization, and productivity.",
         ],
