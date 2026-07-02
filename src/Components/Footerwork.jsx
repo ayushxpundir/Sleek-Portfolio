@@ -12,7 +12,7 @@ function Footerwork() {
                     </div>
                     <div className="last-time">
                         <div className="lastext">
-                            <p>{new Date().getFullYear()} &copy; Ayush Pundir</p>
+                            <p>&copy; {new Date().getFullYear()} · Ayush Pundir</p>
                         </div>
                         <div className="lastlink">
                             <Links/>

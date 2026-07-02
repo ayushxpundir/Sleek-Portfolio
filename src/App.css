@@ -212,7 +212,7 @@ nav h3 {
 
 .stack-i {
     display: flex;
-    gap: 0.65em;
+    gap: 0.5em;
     flex-wrap: wrap;
 }
 
@@ -222,10 +222,12 @@ nav h3 {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    border-radius: 9px;
+    border-radius: .5em;
     cursor: pointer;
     border: 1px solid transparent;
     will-change: transform;
+    padding: .5em;
+    background-color: rgb(22, 22, 22);
     backface-visibility: hidden;
     transform: translateZ(0);
     transition:
@@ -235,7 +237,7 @@ nav h3 {
 }
 
 .stack-icon {
-    width: 2em;
+    width: 1.4em;
     height: auto;
     color: var(--accent-icon-default);
     display: flex;
@@ -442,12 +444,12 @@ nav h3 {
     justify-content: flex-start;
     align-items: center;
     flex-direction: row;
-    gap: 0.55em;
+    gap: 0.5em;
 }
 
 .top-links-style {
     display: flex;
-    width: 1.4em;
+    width: 1em;
     height: auto;
     color: rgb(202, 202, 202);
     transition:
@@ -557,7 +559,7 @@ nav h3 {
 }
 
 .exp-sicons {
-    width: 1.7em;
+    width: 1.2em;
     height: auto;
     display: block;
     color: var(--accent-icon-muted);
@@ -636,7 +638,7 @@ nav h3 {
 }
 
 .lastlink .top-links-style {
-    width: .9em;
+    width: .8em;
     height: auto;
     color: var(--hr-color);
     transition:
@@ -964,7 +966,7 @@ nav h3 {
     }
 
     .exp-sicons {
-        width: 1.7em;
+        width: 1em;
     }
 
     .loader-spinner {
